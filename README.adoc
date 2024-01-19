@@ -1,0 +1,5 @@
+= flags
+flags implemantation of ff.Flags.
+
+This implementation allows ignoring undefined flags from commandline arguments.
+If you do not need this feature you should use the implementation at github.com/peterbourgon/ff instead
