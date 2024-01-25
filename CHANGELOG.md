@@ -8,10 +8,17 @@ It assumes the use of [conventional commits](https://www.conventionalcommits.org
 ## [Unreleased]
 
 
+<a name="v0.0.2"></a>
+## [v0.0.2]
+### Features
+- add flags for in32, uint32, Int64 * Uint64 already existed
+
+
 <a name="v0.0.1"></a>
 ## v0.0.1
 ### Features
 - add flags implementation.
 
 
-[Unreleased]: https://github.com/CestusIO/flags/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/CestusIO/flags/compare/v0.0.2...HEAD
+[v0.0.2]: https://github.com/CestusIO/flags/compare/v0.0.1...v0.0.2

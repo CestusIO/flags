@@ -713,3 +713,34 @@ func TestFlagSet_NonExistingAllowed(t *testing.T) {
 		})
 	}
 }
+
+func TestFlagset_Expanded(t *testing.T) {
+	var int32Var int32
+	var uint32Var uint32
+	var int64Var int64
+	var uint64Var uint64
+	{
+		fs := flags.NewFlagSet("expanded")
+		args := []string{"--int32=1", "--uint32=2", "--int64=3", "--uint64=4"}
+		fs.Uint64Var(&uint64Var, 0, "uint64", 0, "usage")
+		fs.Int64Var(&int64Var, 0, "int64", 0, "usage")
+		fs.Int32Var(&int32Var, 0, "int32", 0, "usage")
+		fs.Uint32Var(&uint32Var, 0, "uint32", 0, "usage")
+		if err := fs.Parse(args); err != nil {
+			t.Errorf("ff.Parse(%v): %v", args, err)
+		}
+		if int32Var != 1 {
+			t.Errorf("int32Var: want %d, have %d", 1, int32Var)
+		}
+		if uint32Var != 2 {
+			t.Errorf("uint32Var: want %d, have %d", 2, uint32Var)
+		}
+		if int64Var != 3 {
+			t.Errorf("int32Var: want %d, have %d", 3, int64Var)
+		}
+		if uint64Var != 4 {
+			t.Errorf("uint64Var: want %d, have %d", 3, uint64Var)
+		}
+
+	}
+}
