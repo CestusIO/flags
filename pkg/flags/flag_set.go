@@ -1110,6 +1110,105 @@ func (fs *FlagSet) Uint64Config(cfg FlagConfig, def uint64) *uint64 {
 	return &value
 }
 
+// Int64Var defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Int64Var(pointer *int64, short rune, long string, def int64, usage string) ff.Flag {
+	return fs.Value(short, long, ffval.NewValueDefault(pointer, def), usage)
+}
+
+// Int64 defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Int64(short rune, long string, def int64, usage string) *int64 {
+	var value int64
+	fs.Int64Var(&value, short, long, def, usage)
+	return &value
+}
+
+// Int64Short defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Int64Short(short rune, def int64, usage string) *int64 {
+	return fs.Int64(short, "", def, usage)
+}
+
+// Int64Long defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Int64Long(long string, def int64, usage string) *int64 {
+	return fs.Int64(0, long, def, usage)
+}
+
+// Int64Config defines a new flag in the flag set, and panics on any error.
+// The value field of the provided config is overwritten.
+func (fs *FlagSet) Int64Config(cfg FlagConfig, def int64) *int64 {
+	var value int64
+	cfg.Value = ffval.NewValueDefault(&value, def)
+	if _, err := fs.AddFlag(cfg); err != nil {
+		panic(err)
+	}
+	return &value
+}
+
+// Uint32Var defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Uint32Var(pointer *uint32, short rune, long string, def uint32, usage string) ff.Flag {
+	return fs.Value(short, long, ffval.NewValueDefault(pointer, def), usage)
+}
+
+// Uint32 defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Uint32(short rune, long string, def uint32, usage string) *uint32 {
+	var value uint32
+	fs.Uint32Var(&value, short, long, def, usage)
+	return &value
+}
+
+// Uint32Short defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Uint32Short(short rune, def uint32, usage string) *uint32 {
+	return fs.Uint32(short, "", def, usage)
+}
+
+// Uint32Long defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Uint32Long(long string, def uint32, usage string) *uint32 {
+	return fs.Uint32(0, long, def, usage)
+}
+
+// Uint32Config defines a new flag in the flag set, and panics on any error.
+// The value field of the provided config is overwritten.
+func (fs *FlagSet) Uint32Config(cfg FlagConfig, def uint32) *uint32 {
+	var value uint32
+	cfg.Value = ffval.NewValueDefault(&value, def)
+	if _, err := fs.AddFlag(cfg); err != nil {
+		panic(err)
+	}
+	return &value
+}
+
+// Int32Var defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Int32Var(pointer *int32, short rune, long string, def int32, usage string) ff.Flag {
+	return fs.Value(short, long, ffval.NewValueDefault(pointer, def), usage)
+}
+
+// Int32 defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Int32(short rune, long string, def int32, usage string) *int32 {
+	var value int32
+	fs.Int32Var(&value, short, long, def, usage)
+	return &value
+}
+
+// Int32Short defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Int32Short(short rune, def int32, usage string) *int32 {
+	return fs.Int32(short, "", def, usage)
+}
+
+// Int32Long defines a new flag in the flag set, and panics on any error.
+func (fs *FlagSet) Int32Long(long string, def int32, usage string) *int32 {
+	return fs.Int32(0, long, def, usage)
+}
+
+// Int32Config defines a new flag in the flag set, and panics on any error.
+// The value field of the provided config is overwritten.
+func (fs *FlagSet) Int32Config(cfg FlagConfig, def int32) *int32 {
+	var value int32
+	cfg.Value = ffval.NewValueDefault(&value, def)
+	if _, err := fs.AddFlag(cfg); err != nil {
+		panic(err)
+	}
+	return &value
+}
+
 // DurationVar defines a new flag in the flag set, and panics on any error.
 func (fs *FlagSet) DurationVar(pointer *time.Duration, short rune, long string, def time.Duration, usage string) ff.Flag {
 	return fs.Value(short, long, ffval.NewValueDefault(pointer, def), usage)
